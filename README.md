@@ -4,15 +4,16 @@
 
 Bryss is a PHP micro framework that helps you quickly write simple yet powerful RESTful APIs inspired by Express and Slim (read the source code by heart). Bryss is built from ground up and no dependencies used currently. 
 
-* This is still in its early versions used with care *
+* This is still in its early development used with care *
 
 ## Installation
 
 It's recommended that you use [Composer](https://getcomposer.org/) to install Bryss.
 
 ```bash
-$ composer require citguru/bryss
+$ composer require citguru/bryss:dev-master
 ```
+*This project is still in development and no stable version yet. You can install by using the :dev-master tag. You should be able to install without it once there's a stable release*
 
 This will install Bryss. Bryss have supports for PHP version from 5.3.0 to the latest ones.
 
