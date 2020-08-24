@@ -7,4 +7,5 @@ interface IResponse
     public function send($body, $status);
     public function json($data, $status);
     public function html($body, $status);
+    public function xml($body, $status);
 }

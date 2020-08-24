@@ -2,7 +2,7 @@
 
 ![Bryss](assets/bryss.png)
 
-Bryss is a PHP micro framework that helps you quickly write simple yet powerful RESTful APIs inspired by Express and Slim (read the source code by heart). Bryss is built from ground up and no dependencies used currently. 
+Bryss is a PHP micro framework that helps you quickly write simple yet powerful RESTful APIs inspired by Express and Slim (read the source code by heart). Bryss is built from ground up and no dependencies used currently.
 
 * This is still in its early development used with care *
 
@@ -42,6 +42,13 @@ $app->get("/hello", function($req, $res){
     ));
 });
 
+$app->get('/hello-xml', function($req, $res, $args) {
+  return $res->xml(array(
+    "message" => "Hello World",
+    "author" => "Ilori Stephen A <stephenilori458@gmail.com>"
+  ));
+});
+
 $app->get("/hello/:name", function($req, $res){
     $name = $req->params["name"];
     return $res->json(array(
@@ -57,12 +64,19 @@ You can quickly test this using the built-in PHP server:
 $ php -S localhost:8000 -t public
 ```
 
-Going to http://localhost:8000/hello/ or http://localhost:8000/hello/:name would return:
+Going to http://localhost:8000/hello/, http://localhost:8000/hello-xml/ or http://localhost:8000/hello/:name would return:
 
 ```json
 {
     "message": "Hello World"
 }
+```
+
+```xml
+<root>
+  <message>Hello World</message>
+  <author>Ilori Stephen A <stephenilori458@gmail.com></author>
+</root>
 ```
 
 ```json
@@ -82,7 +96,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
 ```
 
-or 
+or
 
 ```
 <IfModule mod_rewrite.c>
