@@ -13,8 +13,16 @@ $app = App::create();
 
 $app->get("/hello", function($req, $res, $args){
     return $res->json(array(
-        "message"=>"Hello World"
+        "message"=>"Hello World",
+        "author" => "Oyetoke Tobi"
     ));
+});
+
+$app->get('/hello-xml', function($req, $res, $args) {
+  return $res->xml(array(
+    "message" => "Hello World",
+    "author" => "Ilori Stephen A <stephenilori458@gmail.com>"
+  ));
 });
 
 $app->get("/hello/:name", function($req, $res, $args){
@@ -52,7 +60,7 @@ $app->post('/api/v1/register', function($req, $res){
         "message"=>"Registration successfull",
         "data"=>$body
     ), 200);
-    
+
 });
 
 $app->put("/api/v1/user", function($req, $res){
